@@ -5,27 +5,50 @@ function getComputerChoice(){
     } else if (randomNumber < 7) {
         return "paper";
     } else {
-        return "scissors"
+        return "scissors";
     }
+}
+
+function capitalize(string) {
+    return string.substr(0, 1).toUpperCase() + string.slice(1);
+}
+
+function printChoices(playerSelection, computerSelection) {
+    console.log(`player: ${playerSelection}\ncomputer: ${computerSelection}\n`)
+}
+
+function checkInput(playerSelection) {
+
 }
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase()
     
     if (playerSelection === "paper" && computerSelection === "scissors") {
-        return 'You lose! Scissors beat paper.';
+        printChoices(playerSelection, computerSelection)
+        console.log('You lose! Scissors beat paper.');
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return 'You lose! Paper beats rock.';
+        printChoices(playerSelection, computerSelection)
+        console.log('You lose! Paper beats rock.');
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! Rock beats scissors";
+        printChoices(playerSelection, computerSelection)
+        console.log("You lose! Rock beats scissors");
     } else if (playerSelection === computerSelection) {
-        return "Stalemate"
+        printChoices(playerSelection, computerSelection)
+        console.log("Draw");
     } else {
-        return `You win! ${playerSelection} beats ${computerSelection}`
+        printChoices(playerSelection, computerSelection)
+        console.log(`You win! ${capitalize(playerSelection)} beats ${computerSelection}`);
     }
 }
 
-const playerSelection = "ROCK"
-const computerSelection = getComputerChoice()
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Rock, paper or scissors:");
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    }
 
-console.log(playRound(playerSelection, computerSelection))
+}
+
+game();
