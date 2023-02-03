@@ -14,32 +14,45 @@ function capitalize(string) {
 }
 
 function printChoices(playerSelection, computerSelection) {
-    console.log(`player: ${playerSelection}\ncomputer: ${computerSelection}\n`)
+    console.log(`player: ${playerSelection}\ncomputer: ${computerSelection}\n`);
 }
 
 function checkInput(playerSelection) {
-
+    if (playerSelection === 'rock') {
+        return true;
+    } else if (playerSelection === 'paper') {
+        return true;
+    } else if (playerSelection === 'scissors') {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase()
     
-    if (playerSelection === "paper" && computerSelection === "scissors") {
-        printChoices(playerSelection, computerSelection)
-        console.log('You lose! Scissors beat paper.');
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        printChoices(playerSelection, computerSelection)
-        console.log('You lose! Paper beats rock.');
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        printChoices(playerSelection, computerSelection)
-        console.log("You lose! Rock beats scissors");
-    } else if (playerSelection === computerSelection) {
-        printChoices(playerSelection, computerSelection)
-        console.log("Draw");
+    if (checkInput(playerSelection)) {
+        if (playerSelection === "paper" && computerSelection === "scissors") {
+            printChoices(playerSelection, computerSelection)
+            console.log('You lose! Scissors beat paper.');
+        } else if (playerSelection === "rock" && computerSelection === "paper") {
+            printChoices(playerSelection, computerSelection)
+            console.log('You lose! Paper beats rock.');
+        } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            printChoices(playerSelection, computerSelection)
+            console.log("You lose! Rock beats scissors");
+        } else if (playerSelection === computerSelection) {
+            printChoices(playerSelection, computerSelection)
+            console.log("Draw");
+        } else {
+            printChoices(playerSelection, computerSelection)
+            console.log(`You win! ${capitalize(playerSelection)} beats ${computerSelection}`);
+        }
     } else {
-        printChoices(playerSelection, computerSelection)
-        console.log(`You win! ${capitalize(playerSelection)} beats ${computerSelection}`);
+        console.log("Wrong input")
     }
+    
 }
 
 function game() {
