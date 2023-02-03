@@ -51,8 +51,7 @@ function playRound(playerSelection, computerSelection) {
         }
     } else {
         console.log("Wrong input")
-    }
-    
+    }   
 }
 
 function game() {
@@ -61,7 +60,5 @@ function game() {
         const computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
     }
-
 }
-
 game();
