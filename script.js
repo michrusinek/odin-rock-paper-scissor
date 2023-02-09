@@ -17,48 +17,51 @@ function printChoices(playerSelection, computerSelection) {
     console.log(`player: ${playerSelection}\ncomputer: ${computerSelection}\n`);
 }
 
-function checkInput(playerSelection) {
-    if (playerSelection === 'rock') {
-        return true;
-    } else if (playerSelection === 'paper') {
-        return true;
-    } else if (playerSelection === 'scissors') {
-        return true;
-    } else {
-        return false;
-    }
+function checkIfScissors(playerSelection) {
+    return (playerSelection == "scissors" ? "" : "s"); 
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    
-    if (checkInput(playerSelection)) {
-        if (playerSelection === "paper" && computerSelection === "scissors") {
-            printChoices(playerSelection, computerSelection)
-            console.log('You lose! Scissors beat paper.');
-        } else if (playerSelection === "rock" && computerSelection === "paper") {
-            printChoices(playerSelection, computerSelection)
-            console.log('You lose! Paper beats rock.');
-        } else if (playerSelection === "scissors" && computerSelection === "rock") {
-            printChoices(playerSelection, computerSelection)
-            console.log("You lose! Rock beats scissors");
-        } else if (playerSelection === computerSelection) {
-            printChoices(playerSelection, computerSelection)
-            console.log("Draw");
-        } else {
-            printChoices(playerSelection, computerSelection)
-            console.log(`You win! ${capitalize(playerSelection)} beats ${computerSelection}`);
-        }
+    playerSelection = playerSelection.toLowerCase();
+
+    if (playerSelection === "paper" && computerSelection === "scissors") {
+        printChoices(playerSelection, computerSelection)
+        console.log('You lose! Scissors beat paper.');
+        return 'You lose! Scissors beat paper.';
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        printChoices(playerSelection, computerSelection)
+        console.log('You lose! Paper beats rock.');
+        return 'You lose! Paper beats rock.'
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        printChoices(playerSelection, computerSelection)
+        console.log("You lose! Rock beats scissors");
+        return "You lose! Rock beats scissors";
+    } else if (playerSelection === computerSelection) {
+        printChoices(playerSelection, computerSelection)
+        console.log("Draw");
+        return "Draw"
     } else {
-        console.log("Wrong input")
-    }   
+        printChoices(playerSelection, computerSelection)
+        console.log(`You win! ${capitalize(playerSelection)} beat${checkIfScissors(playerSelection)} ${computerSelection}`);
+        return `You win! ${capitalize(playerSelection)} beat${checkIfScissors(playerSelection)} ${computerSelection}`;
+    }
+
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Rock, paper or scissors:");
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
-}
-game();
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = prompt("Rock, paper or scissors:");
+//         const computerSelection = getComputerChoice();
+//         playRound(playerSelection, computerSelection);
+//     }
+// }
+// game();
+
+const buttons = document.querySelectorAll('button');
+const scoreContainer = document.querySelector('#score');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        scoreContainer.textContent = playRound(button.textContent, getComputerChoice());
+    })
+})
