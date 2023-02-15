@@ -97,7 +97,8 @@ let computerScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', function() {
-        result = playRound(button.textContent, getComputerChoice())
+        const buttonDesc = document.querySelector('.description');
+        result = playRound(buttonDesc.textContent, getComputerChoice());
 
         playerScore = countScore(
             result.playerWin, result.computerWin,
@@ -115,7 +116,7 @@ buttons.forEach((button) => {
             checkIfGameOver(playerScore, computerScore).msg
             +
             `\nScore\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
-            
+
             while(btnContainer.lastChild) {
                 btnContainer.removeChild(btnContainer.lastChild);
             }
