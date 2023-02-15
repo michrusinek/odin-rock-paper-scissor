@@ -33,12 +33,12 @@ function countScore(playerWin = false, computerWin = false, playerScore, compute
 function checkIfGameOver(playerScore, computerScore) {
     if (playerScore === 5) {
         return{
-            msg:"You won the round!",
+            msg:"Game Over! You won!",
             isOver: true
         };
     } else if (computerScore === 5) {
         return {
-            msg:"You lost the round!",
+            msg:"Game Over! You lost!",
             isOver: true
         };
     } else {
@@ -90,6 +90,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const buttons = document.querySelectorAll('button');
+const btnContainer = document.querySelector('#buttons-container');
 const scoreContainer = document.querySelector('#score');
 let playerScore = 0;
 let computerScore = 0;
@@ -109,12 +110,15 @@ buttons.forEach((button) => {
             ).computer;
 
         if (checkIfGameOver(playerScore, computerScore).isOver) {
-            console.log("Game over");
+
             scoreContainer.textContent = 
             checkIfGameOver(playerScore, computerScore).msg
             +
-            `\nScore\nPlayer: ${playerScore}
-            \nComputer: ${computerScore}`;
+            `\nScore\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
+            
+            while(btnContainer.lastChild) {
+                btnContainer.removeChild(btnContainer.lastChild);
+            }
         } else {
             scoreContainer.textContent = 
             result.msg
@@ -122,11 +126,5 @@ buttons.forEach((button) => {
             `\nScore\nPlayer: ${playerScore}
             \nComputer: ${computerScore}`;
         }
-        // scoreContainer.textContent = 
-        // result.msg
-        // +
-        // `\nScore\nPlayer: ${playerScore}
-        // \nComputer: ${computerScore}`;
-        // console.log(checkIfGameOver(playerScore, computerScore));
     })
 })

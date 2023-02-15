@@ -1,3 +1,20 @@
 #score {
     white-space: pre-wrap;
 }
+
+#buttons-container {
+    height: 200px;
+    width: 200px;
+    border: solid 2px brown;
+    margin: 10px;
+    padding: 5px;
+    background-color: goldenrod;
+}
+
+#results-container {
+    height: 200px;
+    width: 200px;
+    border: solid 2px gold;
+    margin: 10px;
+    padding: 5px;
+}
