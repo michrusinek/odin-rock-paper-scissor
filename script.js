@@ -117,9 +117,13 @@ buttons.forEach((button) => {
             +
             `\nScore\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
 
-            while(btnContainer.lastChild) {
-                btnContainer.removeChild(btnContainer.lastChild);
-            }
+            // while(btnContainer.lastChild) {
+            //     btnContainer.removeChild(btnContainer.lastChild);
+            // }
+
+            buttons.forEach((button) => {
+                button.disabled = true;
+            })
         } else {
             scoreContainer.textContent = 
             result.msg
