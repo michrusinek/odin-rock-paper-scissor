@@ -1,8 +1,14 @@
 body {
     display: flex;
-    background-color: #563105;
+    background-color: #111111;
     flex-direction: column;
-    color: beige;
+    color: #b59351;
+    justify-content: center;
+    font-family: 'EB Garamond', sans-serif;
+}
+
+body, body * {
+    font-family: 'EB Garamond', sans-serif;
 }
 
 img {
@@ -16,9 +22,10 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #557F3E;
+    background-color: #353535;
+    color: #b59351;
     padding: 10px;
-    border: solid 5px #1b4107;
+    border: solid 5px #b59351;
     border-radius: 10px;
     gap: 8px;
 }
@@ -28,7 +35,7 @@ button {
     flex-basis: 100%;
     height: 200px;
     border: solid 2px gold;
-    background-color: #201302;
+    background-color: #111111;
     margin: 10px;
     padding: 5px;
     justify-content: center;
@@ -40,19 +47,15 @@ button {
     flex-basis: 100%;
     height: 200px;
     border: solid 2px gold;
-    background-color: #201302;
-    color: beige;
+    background-color: #111111;
     margin: 10px;
     padding: 5px;
     font-size: 48px;
-    font-weight: bold;
     justify-content: center;
 }
 
 .description {
-    color: beige;
     font-size: 20px;
-    font-weight: bold;
 }
 
 #score {
@@ -62,7 +65,7 @@ button {
 
 
 button:disabled {
-    filter: brightness(0.15);
+    filter: brightness(0.1);
     background-color: #B3b7b3;
     border: solid 5px #2b2d2b;
 }

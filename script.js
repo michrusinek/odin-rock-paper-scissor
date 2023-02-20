@@ -33,12 +33,12 @@ function countScore(playerWin = false, computerWin = false, playerScore, compute
 function checkIfGameOver(playerScore, computerScore) {
     if (playerScore === 5) {
         return{
-            msg:"Game Over! You won!",
+            msg:"Game Over!\n You won!",
             isOver: true
         };
     } else if (computerScore === 5) {
         return {
-            msg:"Game Over! You lost!",
+            msg:"Game Over!\n You lost!",
             isOver: true
         };
     } else {
@@ -53,35 +53,35 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "paper" && computerSelection === "scissors") {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:'You lose! Scissors beat paper.',
+            msg:'You lose!\n Scissors beat paper.',
             playerWin: false,
             computerWin: true
         }
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:'You lose! Paper beats rock.',
+            msg:'You lose!\n Paper beats rock.',
             playerWin: false,
             computerWin: true
         }
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:"You lose! Rock beats scissors",
+            msg:"You lose!\n Rock beats scissors.",
             playerWin: false,
             computerWin: true
         }
     } else if (playerSelection === computerSelection) {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:"Draw",
+            msg:"Draw.",
             playerWin: false,
             computerWin: false
         }
     } else {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:`You win! ${capitalize(playerSelection)} beat${checkIfScissors(playerSelection)} ${computerSelection}`,
+            msg:`You win!\n ${capitalize(playerSelection)} beat${checkIfScissors(playerSelection)} ${computerSelection}.`,
             playerWin: true,
             computerWin: false
         }
@@ -115,7 +115,7 @@ buttons.forEach((button) => {
             scoreContainer.textContent = 
             checkIfGameOver(playerScore, computerScore).msg
             +
-            `\nScore\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
+            `\nPLAYER: ${playerScore}  COMPUTER: ${computerScore}`;
 
             // while(btnContainer.lastChild) {
             //     btnContainer.removeChild(btnContainer.lastChild);
@@ -128,8 +128,7 @@ buttons.forEach((button) => {
             scoreContainer.textContent = 
             result.msg
             +
-            `\nScore\nPlayer: ${playerScore}
-            \nComputer: ${computerScore}`;
+            `\nPLAYER: ${playerScore}  COMPUTER: ${computerScore}`;
         }
     })
 })
