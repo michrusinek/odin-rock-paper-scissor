@@ -74,7 +74,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === computerSelection) {
         printChoices(playerSelection, computerSelection)
         return {
-            msg:"Draw.",
+            msg:"Draw.\n",
             playerWin: false,
             computerWin: false
         }
@@ -116,10 +116,6 @@ buttons.forEach((button) => {
             checkIfGameOver(playerScore, computerScore).msg
             +
             `\nPLAYER: ${playerScore}  COMPUTER: ${computerScore}`;
-
-            // while(btnContainer.lastChild) {
-            //     btnContainer.removeChild(btnContainer.lastChild);
-            // }
 
             buttons.forEach((button) => {
                 button.disabled = true;
